@@ -71,6 +71,6 @@ async fn main() -> Result<(), pulsar::Error> {
 
         counter += 1;
         info!("{} messages", counter);
-        tokio::time::sleep(std::time::Duration::from_millis(1)).await;
+        tokio::time::sleep(std::time::Duration::from_millis(2000)).await;
     }
 }
