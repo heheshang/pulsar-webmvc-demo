@@ -30,8 +30,8 @@ async fn main() -> Result<(), pulsar::Error> {
         .unwrap_or_else(|| "pulsar://127.0.0.1:6650".to_string());
     let topic = env::var("PULSAR_TOPIC")
         .ok()
-        // .unwrap_or_else(|| "non-persistent://public/default/test1".to_string());
-        .unwrap_or_else(|| "persistent://public/default/test1".to_string());
+        .unwrap_or_else(|| "non-persistent://public/default/test1".to_string());
+        // .unwrap_or_else(|| "persistent://public/default/test1".to_string());
 
     let mut builder = Pulsar::builder(addr, TokioExecutor);
 
@@ -71,6 +71,6 @@ async fn main() -> Result<(), pulsar::Error> {
 
         counter += 1;
         info!("{} messages", counter);
-        tokio::time::sleep(std::time::Duration::from_millis(2000)).await;
+        tokio::time::sleep(std::time::Duration::from_millis(1)).await;
     }
 }
